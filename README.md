@@ -1,4 +1,3 @@
-# placeyabet
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,26 +21,32 @@
       font-size: 2rem;
       text-decoration: underline;
     }
-    video {
+    #player {
       display: none;
-      max-width: 90%;
-      max-height: 80vh;
+      width: 80%;
+      max-width: 800px;
+      aspect-ratio: 16 / 9;
       margin-top: 20px;
+      border: none;
     }
   </style>
 </head>
 <body>
   <h1 onclick="playVideo()">🎵 Place Ya Bet by Grant Kiser 🎵</h1>
-  <video id="musicVideo" controls>
-    <source src="PLACE_YOUR_VIDEO_URL_HERE.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+
+  <!-- YouTube Embed Iframe (hidden until click) -->
+  <iframe id="player"
+    src=""
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
 
   <script>
     function playVideo() {
-      const vid = document.getElementById('musicVideo');
-      vid.style.display = 'block';
-      vid.play();
+      const player = document.getElementById("player");
+      // Replace YOUTUBE_VIDEO_ID with your video's ID
+      player.src = "https://www.youtube.com/embed/YOUTUBE_VIDEO_ID?autoplay=1";
+      player.style.display = "block";
     }
   </script>
 </body>
